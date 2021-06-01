@@ -1,0 +1,56 @@
+package com.study.springboot;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.study.springboot.dao.ISimpleBbsDao;
+import com.study.springboot.jdbc.MyUserDAO;
+
+@Controller
+public class MyController {
+	
+	@Autowired
+	ISimpleBbsDao dao;
+	
+	@RequestMapping("/")
+	public  String root() throws Exception {
+		return "redirect:list";
+	}
+	
+	@RequestMapping("/list")
+	public String list(Model model) throws Exception {
+		model.addAttribute("list", dao.listDao());
+		return "/list";
+	}
+	
+	@RequestMapping("/view")
+	public String view(HttpServletRequest request, Model model) throws Exception {
+		String sId = request.getParameter("id");
+		model.addAttribute("dto", dao.viewDao(sId));
+		return "/view";
+	}
+	
+	@RequestMapping("/writeForm")
+	public String writeForm() throws Exception {
+		
+		return "/writeForm";
+	}
+	
+	@RequestMapping("/write")
+	public String write(HttpServletRequest request, Model model) throws Exception {
+		dao.writeDao(request.getParameter("id"), null, null)
+		return "redirect:list";
+	}
+	
+	
+
+
+
+}

@@ -1,0 +1,10 @@
+package com.study.springboot;
+
+@Data
+public class Member {
+	
+	private String id;
+	private String name;
+	
+
+}

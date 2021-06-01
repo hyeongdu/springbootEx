@@ -1,0 +1,18 @@
+package com.study.springboot.dao;
+
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import com.study.springboot.dto.Transaction1Dto;
+
+@Mapper
+public interface ITransaction1Dao {
+
+	
+	public void pay(String consumerId, int amount);
+
+	
+}

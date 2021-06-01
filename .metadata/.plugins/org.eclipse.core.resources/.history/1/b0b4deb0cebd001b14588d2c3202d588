@@ -1,0 +1,25 @@
+package com.study.springboot.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.study.springboot.dao.ITransaction1Dao;
+import com.study.springboot.dto.Transaction1Dto;
+
+@Service
+public class BuyTicketService implements IBuyTicketService {
+	
+	@Autowired
+	ITransaction1Dao transaction1;
+	ITransaction2Dao transaction2;
+	
+	@Override
+	public List<Transaction1Dto> list() {
+		// TODO Auto-generated method stub
+		return dao.listDao();
+	}
+
+}

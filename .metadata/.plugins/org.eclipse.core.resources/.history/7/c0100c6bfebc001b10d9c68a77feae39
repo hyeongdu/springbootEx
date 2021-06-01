@@ -1,0 +1,10 @@
+package com.study.springboot.jdbc;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class MyUserDAO {
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+}
